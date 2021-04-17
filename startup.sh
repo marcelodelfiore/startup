@@ -187,3 +187,13 @@ echo 'instaling RAILS'
 gem install bundler
 gem install rails -v 6.1.3
 gem install rspec
+
+echo 'installing qbittorrent'
+sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
+sudo apt-get update
+sudo apt-get install qbittorrent
+
+echo 'installing TOR web browser'
+sudo add-apt-repository ppa:micahflee/ppa
+sudo apt-get update
+sudo apt install torbrowser-launcher
