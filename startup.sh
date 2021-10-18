@@ -190,10 +190,14 @@ gem install rspec
 
 echo 'installing qbittorrent'
 sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
-sudo apt-get update
-sudo apt-get install qbittorrent
+sudo apt-get update -y
+sudo apt-get install qbittorrent -y
 
 echo 'installing TOR web browser'
 sudo add-apt-repository ppa:micahflee/ppa
 sudo apt-get update
-sudo apt install torbrowser-launcher
+sudo apt install torbrowser-launcher -y
+sudo apt update
+sudo apt install pinta -y
+sudo apt update
+sudo apt install easytag -y
