@@ -4,6 +4,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'morhetz/gruvbox'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-rails'
+  Plug 'tpope/vim-commentary'
   Plug 'ngmy/vim-rubocop'
   Plug 'ryanoasis/vim-devicons'
   Plug 'vim-airline/vim-airline'
