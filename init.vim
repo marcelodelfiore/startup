@@ -1,3 +1,12 @@
+"Set leader key
+let mapleader=","
+set timeout timeoutlen=1500
+
+"Swap & backup files
+set noswapfile
+set nobackup
+set nowb
+
 call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'altercation/vim-colors-solarized'
   Plug 'scrooloose/nerdtree'
@@ -18,8 +27,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'habamax/vim-asciidoctor'
   Plug 'scrooloose/syntastic'
   Plug 'vim-ruby/vim-ruby'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  call plug#end()
+  Plug 'elixir-editors/vim-elixir'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
+call plug#end()
 
 set background=dark
 colorscheme gruvbox
@@ -27,25 +38,49 @@ colorscheme gruvbox
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+"Command history
+set history=200
+
+"Prevent opening new buffer without saving current file
 set hidden
-set number
-set relativenumber
+
+"show line numbers & relative line numbers, to current line
+set number relativenumber
+
+"
 set inccommand=split
+
+"Reload files changed outside nvim
 set autoread
+
+"Emulates delete key between lines
+set backspace=indent,eol,start
+
 "Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
+
+"set auto indent
 set ai
+
+"tab size
 set tabstop=2
+
 set showmatch
+
+"Large (screen size) line and column cursors
 set cursorline
 set cursorcolumn
 
-nnoremap <C-o> :NERDTreeToggle<CR>
+"Get rid of that annoying bell
+set visualbell
+
+map <leader>o :NERDTreeToggle<CR>
 
 let NERDTreeShowHidden=1
+
+"Rubocop shortcut
 let g:vimrubocop_keymap = 0
-nnoremap <C-r> :RuboCop<CR>
-let g:deoplete#enable_at_startup = 1
+map <leader>r :RuboCop<CR>
 
 "Spaces & Tabs {{{
 set tabstop=2       " number of visual spaces per TAB
