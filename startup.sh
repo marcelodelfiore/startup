@@ -1,9 +1,9 @@
 sudo apt-get update
 
-echo 'installing curl' 
+echo 'installing curl'
 sudo apt install curl -y
 
-echo 'installing git' 
+echo 'installing git'
 sudo apt install git -y
 
 'configuring GIT'
@@ -17,7 +17,7 @@ ssh-keygen -t rsa -b 4096 -C $git_config_user_email
 ssh-add ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub | xclip -selection clipboard
 
-echo 'enabling workspaces for both screens' 
+echo 'enabling workspaces for both screens'
 gsettings set org.gnome.mutter workspaces-only-on-primary false
 
 echo 'installing zsh'
@@ -59,11 +59,11 @@ clear
 #code --install-extension yzhang.markdown-all-in-one
 #code --install-extension ruby-rubocop
 
-#echo 'installing chrome' 
+#echo 'installing chrome'
 #wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 #sudo dpkg -i google-chrome-stable_current_amd64.deb
 
-#echo 'installing nvm' 
+#echo 'installing nvm'
 #sh -c "$(curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash)"
 #
 #export NVM_DIR="$HOME/.nvm" && (
@@ -84,67 +84,18 @@ clear
 echo 'installing nodejs'
 sudo apt install nodejs
 
-echo 'installing autosuggestions' 
+echo 'installing autosuggestions'
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 echo "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
 source ~/.zshrc
 
 echo 'installing theme'
 sudo apt install fonts-firacode -y
-wget -O ~/.oh-my-zsh/themes/node.zsh-theme https://raw.githubusercontent.com/skuridin/oh-my-zsh-node-theme/master/node.zsh-theme 
+wget -O ~/.oh-my-zsh/themes/node.zsh-theme https://raw.githubusercontent.com/skuridin/oh-my-zsh-node-theme/master/node.zsh-theme
 sed -i 's/.*ZSH_THEME=.*/ZSH_THEME="ys"/g' ~/.zshrc
 
-echo 'installing terminator'
-sudo apt-get update
-sudo apt-get install terminator -y
 
-echo 'adding dracula theme' 
-cat <<EOF >  ~/.config/terminator/config
-[global_config]
-  title_transmit_bg_color = "#ad7fa8"
-[keybindings]
-  close_term = <Primary>w
-  close_window = <Primary>q
-  new_tab = <Primary>t
-  new_window = <Primary>i
-  paste = <Primary>v
-  split_horiz = <Primary>e
-  split_vert = <Primary>d
-  switch_to_tab_1 = <Primary>1
-  switch_to_tab_10 = <Primary>0
-  switch_to_tab_2 = <Primary>2
-  switch_to_tab_3 = <Primary>3
-  switch_to_tab_4 = <Primary>4
-  switch_to_tab_5 = <Primary>5
-  switch_to_tab_6 = <Primary>6
-[layouts]
-  [[default]]
-    [[[child1]]]
-      parent = window0
-      type = Terminal
-    [[[window0]]]
-      parent = ""
-      type = Window
-[plugins]
-[profiles]
-  [[default]]
-    cursor_color = "#aaaaaa"
-EOF
-
-
-cat <<EOF >>  ~/.config/terminator/config
-[[Dracula]]
-    background_color = "#1e1f29"
-    background_darkness = 0.88
-    background_type = transparent
-    copy_on_selection = True
-    cursor_color = "#bbbbbb"
-    foreground_color = "#f8f8f2"
-    palette = "#000000:#ff5555:#50fa7b:#f1fa8c:#bd93f9:#ff79c6:#8be9fd:#bbbbbb:#555555:#ff5555:#50fa7b:#f1fa8c:#bd93f9:#ff79c6:#8be9fd:#ffffff"
-    scrollback_infinite = True
-EOF
-
-echo 'installing docker' 
+echo 'installing docker'
 sudo apt-get remove docker docker-engine docker.io
 sudo apt install docker.io -y
 sudo systemctl start docker
@@ -154,7 +105,7 @@ docker --version
 chmod 777 /var/run/docker.sock
 docker run hello-world
 
-echo 'installing docker-compose' 
+echo 'installing docker-compose'
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
