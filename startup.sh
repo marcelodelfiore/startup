@@ -64,18 +64,18 @@ clear
 #sudo dpkg -i google-chrome-stable_current_amd64.deb
 
 #echo 'installing nvm'
-#sh -c "$(curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash)"
+sh -c "$(curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash)"
 #
-#export NVM_DIR="$HOME/.nvm" && (
-#git clone https://github.com/creationix/nvm.git "$NVM_DIR"
-#cd "$NVM_DIR"
-#git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
-#) && \. "$NVM_DIR/nvm.sh"
+export NVM_DIR="$HOME/.nvm" && (
+git clone https://github.com/creationix/nvm.git "$NVM_DIR"
+cd "$NVM_DIR"
+git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+) && \. "$NVM_DIR/nvm.sh"
 
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-#source ~/.zshrc
+source ~/.zshrc
 #nvm --version
 #nvm install 12
 #nvm alias default 12
@@ -113,31 +113,30 @@ docker-compose --version
 # ruby dependencies
 sudo apt-get install -y libssl-dev zlib1g-dev -y
 
-echo 'installing rbenv & ruby'
-sudo apt install autoconf bison build-essential libssl-dev libyaml-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
-mkdir -p "$(rbenv root)"/plugins
-git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
-curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
-rbenv install 3.0.0
 
-#echo 'installing ASDF'
-#git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
-#. $HOME/.asdf/asdf.sh
-#. $HOME/.asdf/completions/asdf.bash
-#asdf plugin add python
-#asdf plugin add ruby
-#asdf install ruby 3.0.0
-#cd ~
-#touch .tool-versions
-#echo ruby 3.0.0 >> .tool-versions
-#echo python 3.9.0 >> .tool-versions
+# git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+# echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
+# mkdir -p "$(rbenv root)"/plugins
+# git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+# curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
+# rbenv install 3.0.0
+
+echo 'installing ASDF'
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+# asdf plugin add python
+asdf plugin add ruby
+# asdf install ruby 3.0.0
+cd ~
+touch .tool-versions
+# echo ruby 3.0.0 >> .tool-versions
+# echo python 3.9.0 >> .tool-versions
 
 echo 'instaling RAILS'
 gem install bundler
 gem install rails -v 6.1.3
-gem install rspec
+# gem install rspec
 
 echo 'installing qbittorrent'
 sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable

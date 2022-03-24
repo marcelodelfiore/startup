@@ -14,6 +14,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-rails'
   Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-surround'
   Plug 'ngmy/vim-rubocop'
   Plug 'ryanoasis/vim-devicons'
   Plug 'vim-airline/vim-airline'
@@ -30,10 +31,18 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'elixir-editors/vim-elixir'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
+  Plug 'dart-lang/dart-vim-plugin'
+  Plug 'natebosch/vim-lsc'
+  Plug 'natebosch/vim-lsc-dart'
+  Plug 'fatih/vim-go'
 call plug#end()
+
+set encoding=UTF-8
 
 set background=dark
 colorscheme gruvbox
+set guifont=DroidSansMono\ Nerd\ Font\ 11
+
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -71,12 +80,24 @@ set showmatch
 set cursorline
 set cursorcolumn
 
+"CoC definitions
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+let g:lsc_auto_map = v:true
+
 "Get rid of that annoying bell
 set visualbell
 
 map <leader>o :NERDTreeToggle<CR>
 
 let NERDTreeShowHidden=1
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <C-s> :NERDTree-s<CR>
 
 "Rubocop shortcut
 let g:vimrubocop_keymap = 0
