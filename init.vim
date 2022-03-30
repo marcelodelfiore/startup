@@ -35,7 +35,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'natebosch/vim-lsc'
   Plug 'natebosch/vim-lsc-dart'
   Plug 'fatih/vim-go'
+  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+  Plug 'thaerkh/vim-indentguides'
 call plug#end()
+
+nnoremap <silent> <s-Down> :m +1<CR>
+nnoremap <silent> <s-Up> :m -2<CR>
 
 set encoding=UTF-8
 
@@ -43,6 +48,10 @@ set background=dark
 colorscheme gruvbox
 set guifont=DroidSansMono\ Nerd\ Font\ 11
 
+" Configurações do Vim IndentGuides
+let g:indentguides_spacechar = '▏'
+let g:indentguides_tabchar = '▏'
+" Fim das configurações do Vim IndentGuides
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
