@@ -37,7 +37,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'fatih/vim-go'
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   Plug 'thaerkh/vim-indentguides'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
+
+nnoremap <F5> :buffers<CR>:buffer<Space>
 
 nnoremap <silent> <s-Down> :m +1<CR>
 nnoremap <silent> <s-Up> :m -2<CR>
@@ -127,3 +133,9 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Panel resizing
+nnoremap <silent> <Leader>[ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>] :exe "resize " . (winheight(0) * 2/3)<CR>
+
+nnoremap <silent> <Leader>( :exe "resize +20" <CR>
+nnoremap <silent> <Leader>) :exe "resize -20" <CR>
