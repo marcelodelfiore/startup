@@ -24,26 +24,21 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'kien/ctrlp.vim'
   Plug 'rking/ag.vim'
   Plug 'gmarik/Vundle.vim'
-  Plug 'slim-template/vim-slim'
   Plug 'habamax/vim-asciidoctor'
   Plug 'scrooloose/syntastic'
   Plug 'vim-ruby/vim-ruby'
   Plug 'elixir-editors/vim-elixir'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
-  Plug 'dart-lang/dart-vim-plugin'
   Plug 'natebosch/vim-lsc'
   Plug 'natebosch/vim-lsc-dart'
-  Plug 'fatih/vim-go'
-  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   Plug 'thaerkh/vim-indentguides'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'rust-lang/rust.vim'
-  Plug 'tomlion/vim-solidity'
-  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+  Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
 
 setlocal foldmethod=syntax
@@ -96,6 +91,7 @@ set list listchars=tab:\ \ ,trail:·
 
 "set auto indent
 set ai
+set pastetoggle=<F2>
 
 "tab size
 set tabstop=2
