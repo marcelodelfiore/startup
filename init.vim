@@ -2,6 +2,9 @@
 let mapleader=","
 set timeout timeoutlen=1500
 
+# running ruby code from nvim
+autocmd BufRead, *.rb nmap <leader>r :!ruby %<cr>
+
 "Swap & backup files
 set noswapfile
 set nobackup
@@ -40,6 +43,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'rust-lang/rust.vim'
   Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
+
+set splitbelow
+set splitright
 
 setlocal foldmethod=syntax
 
@@ -132,6 +138,7 @@ set shiftwidth=2    " number of spaces to use for autoindent
 set expandtab       " tabs are space
 set autoindent
 set copyindent      " copy indent from the previous line
+set shiftround
 " }}} Spaces & Tabs
 
 " " GoTo code navigation.
